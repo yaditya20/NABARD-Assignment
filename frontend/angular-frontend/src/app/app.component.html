@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <div>
+    <a *ngIf="!employeeService.isUserLoggedIn()" href="http://localhost:4200/" class="navbar-brand">Employee Portal</a>
+    <a *ngIf="employeeService.isUserLoggedIn()" href="http://localhost:4200/employees" class="navbar-brand">Employee Portal</a>
+  </div>
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a *ngIf="!employeeService.isUserLoggedIn()" routerLink="login-employee" routerLinkActive="active" class="nav-link">Login</a>
+    </li>
+    <li class="nav-item">
+      <a *ngIf="employeeService.isUserLoggedIn()" routerLink="employees" routerLinkActive="active" class="nav-link">View Employee List</a>
+    </li>
+    <li class="nav-item">
+      <a *ngIf="employeeService.isUserLoggedIn()" routerLink="create-employee" routerLinkActive="active" class="nav-link">Add New Employee</a>
+    </li>
+    <li class="nav-item">
+      <a *ngIf="employeeService.isUserLoggedIn()" routerLink="logout-employee" routerLinkActive="active" class="nav-link">Logout</a>
+    </li>
+  </ul>
+</nav>
+
+<h1 class="text-center"> {{ title }} </h1>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <span> © Copyright</span>
+  </div>
+</footer>
